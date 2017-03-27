@@ -1,20 +1,27 @@
-#Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+#Pineapple
+Eine auf NativeScript und Angular 2 basierende App für die Kommunikation von Kindergarten Lehrpersonen und den Eltern der Kinder.
 
-#Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+#Installation NativeScript und Android Emulation
+
+ 1. Vorgängig überprüfen, ob auf dem Rechner die VTx (BIOS) eingeschaltet ist
+ 2. Falls Hyper-V installiert ist, muss dieser deinstalliert werden. Ansonsten kann der intelhaxm-android Treiber, welcher die Hardwarebeschleunigung für den Android Emulator nutzt, nicht installiert werden.
+ 3. Sämtliche Programme auf dem Rechner schliessen und einen Command-Prompt aufrufen (Admin Modus)
+ 4. Folgenden Befehl im Command-Prompt ausführen: @powershell -NoProfile -ExecutionPolicy Bypass -Command `"iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/NativeScript/nativescript-cli/production/setup/native-script.ps1'))"`
+ 5. Mit "A" Bestätigen, damit nicht ständig nachgefragt wird
+ 6. Nach der Installation muss der Benutzer auf dem Rechner abgemeldet und wieder angemeldet werden, damit die Änderungen aktiv werden. Ich empfehle hier einen Neustart
+ 7. NativeScript via npm installieren: npm install nativescript -g
+ 8. Testen der NativeScript Installation mit: tsc --version
+
+#Erstellen einer AVD (Android Virtual Device)
+- Siehe Word Dokument `docs/erstellen_einer_avd.docx`
 
 #Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+- Für Client:   `[Projektpfad]/Pineapple/src/client> npm install`
+- Für Server:   `[Projektpfad]/Pineapple/src/server> npm install`
 
-#Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+#Starten der Android Emulation
+- `[Projektpfad]/Pineapple/src/client> tns run android`
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://www.visualstudio.com/en-us/docs/git/create-a-readme). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+#Unit Test
+- Unit Test auf dem Server: `[Projektpfad]/Pineapple/src/server> npm test`
+- Clientseitig sind mit NativeScript und Angular 2 derzeit leider keine Unit Test möglich
