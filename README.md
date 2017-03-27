@@ -1,4 +1,5 @@
 # Pineapple
+![Pineapple](https://github.com/handeres/Pineapple/blob/master/src/client/app/App_Resources/Android/drawable-hdpi/logo.png)
 Eine auf NativeScript und Angular 2 basierende App für die Kommunikation von Kindergarten Lehrpersonen und den Eltern der Kinder.
 
 # Installation NativeScript und Android Emulation
@@ -27,7 +28,7 @@ Eine auf NativeScript und Angular 2 basierende App für die Kommunikation von Ki
 - `[Projektpfad]/Pineapple/src/client> tns run android`
 
 # Unit Test
-- Srtaten der Unit Test auf dem Server: `[Projektpfad]/Pineapple/src/server> npm test`
+- Starten der Unit Test auf dem Server: `[Projektpfad]/Pineapple/src/server> npm test`
 - Clientseitig sind mit NativeScript und Angular 2 derzeit leider keine Unit Test möglich
 
 # Beispiel Login
