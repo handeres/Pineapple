@@ -1,0 +1,36 @@
+<ActionBar title="Registrierung">
+    <NavigationButton android.systemIcon="ic_menu_back" (tap)="onBack()"></NavigationButton>
+</ActionBar>
+<ScrollView>
+    <StackLayout class="main-container">
+        <Image class="logo" src="res://pineapple_logo_ohne_text" horizontalAlignment="center"></Image>
+        <RadDataForm #registerDataFormComp [source]="model">
+            <TKEntityProperty tkDataFormProperty name="email" displayName="E-Mail" index="0">
+                <TKEmailValidator tkEntityPropertyValidators errorMessage="Bitte eine korrekte E-Mail Adresse eingeben!"></TKEmailValidator>
+                <TKPropertyEditor tkEntityPropertyEditor type="Email">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#61B945" editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="password" displayName="Kennwort" index="1">
+                <TKMinimumLengthValidator tkEntityPropertyValidators errorMessage="Das Kennwort muss mindestens 6 Zeichen lang sein!" length="6"></TKMinimumLengthValidator>
+                <TKPropertyEditor tkEntityPropertyEditor type="Password">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#61B945" editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="password2" displayName="Kennwort wiederholen" index="2">
+                <TKMinimumLengthValidator tkEntityPropertyValidators errorMessage="Das Kennwort muss mindestens 6 Zeichen lang sein!" length="6"></TKMinimumLengthValidator>
+                <TKPropertyEditor tkEntityPropertyEditor type="Password">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#61B945" editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="contractId" displayName="Vertrags ID" index="3">
+                <TKMinimumLengthValidator tkEntityPropertyValidators errorMessage="Bitte eine Vertrags ID eingeben!" length="1"></TKMinimumLengthValidator>
+                <TKPropertyEditor tkEntityPropertyEditor type="Text">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#61B945" editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+        </RadDataForm>
+        <Button class="submit-button" text="Registrieren" (tap)="onSubmit()"></Button>
+    </StackLayout>
+</ScrollView>
+<app-busy-indicator [IsBusy]="routerService.IsBusy"></app-busy-indicator>

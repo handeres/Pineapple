@@ -1,0 +1,75 @@
+@import 'variables';
+@import 'styles/helpers';
+
+ActionBar {
+    background-color: $pineAppleClassColor;
+    color: $white;
+}
+
+.main-container {
+    @include main-container-margin(15px);
+}
+
+.group-search {
+    @extend .search-input;
+}
+
+.group-item {
+    @extend .list-view-item;
+}
+
+.group-detail {
+    background-color: $white;
+    margin-left: 16px;
+    margin-top: 6px;
+}
+
+.group-detail-name {
+    background-color: $white;
+    color: $pineAppleClassColor;
+    font: {
+        size: 15px;
+        weight: bold;
+    };
+}
+
+.group-detail-present-icon {
+    @extend .font-awesome;
+    background-color: $white;
+    color: $pineAppleMessageColor;
+    margin-top: 4px;
+    margin-right: 4px;
+    text-align: left;
+}
+
+.group-detail-level {
+    background-color: $white;
+    font-size: 12px;
+}
+
+.group-detail-level-container,
+.group-detail-absence-container,
+.group-detail-present-container {
+    background-color: $white;
+}
+
+.group-detail-absence-number,
+.group-detail-present-number {
+    background-color: $white;
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+.group-detail-absence-icon {
+    @extend .font-awesome;
+    background-color: $white;
+    color: $pineAppleChildColor;
+    margin-top: 4px;
+    margin-right: 4px;
+    text-align: left;
+}
+
+.image-container {
+    height: 75px;
+    width: 75px;
+}

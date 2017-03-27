@@ -1,0 +1,42 @@
+<ActionBar title="Stundenplan">
+    <NavigationButton android.systemIcon="ic_menu_back" (tap)="onBack()"></NavigationButton>
+</ActionBar>
+<GridLayout rows="*, auto">
+    <StackLayout class="main-container" row="0">
+        <TextField class="timetable-search font-awesome" hint="&#xf002; Suche..." [(ngModel)]="filter" autocorrect="false"></TextField>
+        <Label *ngIf="items.length == 0" text="Noch kein Stundenplan vorhanden"></Label>
+        <RadListView id="listView" [items]="items  | timetableFilter:filter" >
+            <template tkListItemTemplate let-item="item">
+                <StackLayout class="timetable-item" orientation="horizontal">
+                    <Label class="timetable-date-day" [text]="item.dayName" horizontalAlignment="center"></Label>
+                    <StackLayout class="timetable-detail" orientation="vertical">
+                        <StackLayout class="timetable-detail" orientation="horizontal">
+                            <StackLayout class="timetable-detail" orientation="vertical">
+                                <Label class="timetable-detail-title" [text]="item.textMorning"></Label>
+                                <StackLayout  class="timetable-detail" orientation="horizontal">
+                                    <Label class="timetable-detail-description" [text]="item.timefromMorning"></Label>
+                                    <Label class="timetable-detail-description-short" text="-"></Label>
+                                    <Label class="timetable-detail-description" [text]="item.timeToMorning"></Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout class="timetable-detail" orientation="horizontal">
+                            <StackLayout class="timetable-detail" orientation="vertical">
+                                <Label class="timetable-detail-title" [text]="item.textAfternoon"></Label>
+                                <StackLayout  class="timetable-detail" orientation="horizontal">
+                                    <Label class="timetable-detail-description" [text]="item.timefromAfternoon"></Label>
+                                    <Label class="timetable-detail-description-short" text="-"></Label>
+                                    <Label class="timetable-detail-description" [text]="item.timeToAfternoon"></Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </template>
+        </RadListView>
+    </StackLayout>
+    <StackLayout row="1">
+        <app-navigation [navItems]="navItems"></app-navigation>
+    </StackLayout>
+</GridLayout>
+<app-busy-indicator [isBusy]="routerService.isBusy"></app-busy-indicator>

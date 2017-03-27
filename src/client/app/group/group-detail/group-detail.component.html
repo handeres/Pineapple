@@ -1,0 +1,46 @@
+<ActionBar title="Editieren der Klasse">
+    <NavigationButton android.systemIcon="ic_menu_back" (tap)="onBack()"></NavigationButton>
+    <ActionItem *ngIf="isOrganisation" (tap)="onSubmit()" android.systemIcon="ic_menu_save"></ActionItem>
+</ActionBar>
+<GridLayout rows="*, auto">
+    <ScrollView>
+        <StackLayout class="main-container" row="0">
+            <StackLayout class="image-container">
+                <Image [imageSource]="group.imageSource" (tap)="onSelectSingleTap($event)" horizontalAlignment="center" stretch="aspectFill"></Image>
+            </StackLayout>
+            <RadDataForm #groupDetailDataFormComp tkExampleTitle tkToggleNavButton IsTextSearchEnabled="False" [source]="group">
+                <TKEntityProperty tkDataFormProperty name="_id" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="__v" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="imageSource" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="organisation" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="memberNbr" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="presentNbr" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="absencesNbr" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="picture" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="name" displayName="Klassennamen" index="0" [readOnly]="!isOrganisation">
+                    <TKMinimumLengthValidator tkEntityPropertyValidators errorMessage="Bitte einen Klassenname eingeben!" length="1"></TKMinimumLengthValidator>
+                    <TKPropertyEditor tkEntityPropertyEditor type="Text">
+                        <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#985296" editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                    </TKPropertyEditor>
+                </TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="level" displayName="Stufe" index="1" [readOnly]="!isOrganisation">
+                    <TKMinimumLengthValidator tkEntityPropertyValidators errorMessage="Bitte einen Stufe eingeben!" length="1"></TKMinimumLengthValidator>
+                    <TKPropertyEditor tkEntityPropertyEditor type="Text">
+                        <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#985296" editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                    </TKPropertyEditor>
+                </TKEntityProperty>
+                <TKEntityProperty *ngIf="isEditMode" readOnly="true" tkDataFormProperty name="memberNbr" displayName="Anzahl Kinder" index="2">
+                    <TKPropertyEditor  tkEntityPropertyEditor type="Number">
+                        <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#985296" editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                    </TKPropertyEditor>
+                </TKEntityProperty>
+            </RadDataForm>
+            <Button class="group-action-button" *ngIf="isEditMode" text="Übersicht Kinder" (tap)="onMemberOverview()"></Button>
+            <Button class="group-action-button" *ngIf="isEditMode" text="Stundenplan" (tap)="onTimeTableOverview()"></Button>
+        </StackLayout>
+    </ScrollView>
+    <StackLayout row="1">
+        <app-navigation [navItems]="navItems"></app-navigation>
+    </StackLayout>
+</GridLayout>
+<app-busy-indicator [isBusy]="routerService.isBusy"></app-busy-indicator>

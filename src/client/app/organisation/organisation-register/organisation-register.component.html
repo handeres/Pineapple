@@ -1,0 +1,77 @@
+<ActionBar title="Registrieren (Organisation)">
+    <NavigationButton android.systemIcon="ic_menu_back" (tap)="onBack()"></NavigationButton>
+    <ActionItem *ngIf="!isFirstLogin" (tap)="onSubmit()" android.systemIcon="ic_menu_save"></ActionItem>
+</ActionBar>
+<ScrollView>
+    <StackLayout class="main-container">
+        <Image class="logo" src="res://pineapple_logo_ohne_text" horizontalAlignment="center"></Image>
+        <RadDataForm #organisationDataFormComp [source]="organisation.form">
+            <TKEntityProperty tkDataFormProperty name="name" displayName="Name Ihrer Einrichtung" index="0">
+                <TKMinimumLengthValidator tkEntityPropertyValidators errorMessage="Bitte einen Namen der Einrichtung eingeben!" length="1"></TKMinimumLengthValidator>
+                <TKPropertyEditor tkEntityPropertyEditor type="Text">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#61B945" editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+        </RadDataForm>
+        <RadDataForm #adressDataFormComp tkExampleTitle tkToggleNavButton IsTextSearchEnabled="False" [source]="organisation.adress">
+            <TKEntityProperty tkDataFormProperty name="_id" hidden="true"></TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="__v" hidden="true"></TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="createDate" hidden="true"></TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="modifiedDate" hidden="true"></TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="name" displayName="Vorname" index="0">
+                <TKMinimumLengthValidator tkEntityPropertyValidators errorMessage="Bitte einen Vornamen eingeben!" length="1"></TKMinimumLengthValidator>
+                <TKPropertyEditor tkEntityPropertyEditor type="Text">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#61B945" editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="surname" displayName="Nachname" index="1">
+                <TKMinimumLengthValidator tkEntityPropertyValidators errorMessage="Bitte einen Nachnamen eingeben!" length="1"></TKMinimumLengthValidator>
+                <TKPropertyEditor tkEntityPropertyEditor type="Text">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#61B945" editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="street" displayName="Strasse" index="2">
+                <TKMinimumLengthValidator tkEntityPropertyValidators errorMessage="Bitte eine Strasse eingeben!" length="1"></TKMinimumLengthValidator>
+                <TKPropertyEditor tkEntityPropertyEditor type="Text">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#61B945" editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="number" displayName="Nummer" index="3">
+                <TKMinimumLengthValidator tkEntityPropertyValidators errorMessage="Bitte eine Nummner eingeben!" length="1"></TKMinimumLengthValidator>
+                <TKPropertyEditor tkEntityPropertyEditor type="Text">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#61B945" editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="zipCode" displayName="Postleitzahl" index="4">
+                <TKMinimumLengthValidator tkEntityPropertyValidators errorMessage="Bitte eine Postleitzahl eingeben!" length="1"></TKMinimumLengthValidator>
+                <TKPropertyEditor tkEntityPropertyEditor type="Text">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#61B945" editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="city" displayName="Ort" index="5">
+                <TKMinimumLengthValidator tkEntityPropertyValidators errorMessage="Bitte einen Ort eingeben!" length="1"></TKMinimumLengthValidator>
+                <TKPropertyEditor tkEntityPropertyEditor type="Text">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#61B945" editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="email" displayName="E-Mail" index="6">
+                <TKEmailValidator  tkEntityPropertyValidators errorMessage="Bitte eine korrekte E-Mail Adresse eingeben!"></TKEmailValidator>
+                <TKPropertyEditor tkEntityPropertyEditor type="Email">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#61B945" editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="phone" displayName="Rufnummer" index="7">
+                <TKPropertyEditor tkEntityPropertyEditor type="Phone">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#61B945" editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="mobile" displayName="Mobile" index="8">
+                <TKPropertyEditor tkEntityPropertyEditor type="Phone">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#61B945" editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+        </RadDataForm>
+        <Button *ngIf="isFirstLogin" class="submit-button" text="Registrieren" (tap)="onSubmit()"></Button>
+    </StackLayout>
+</ScrollView>
+<app-busy-indicator [isBusy]="routerService.isBusy"></app-busy-indicator>

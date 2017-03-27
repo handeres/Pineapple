@@ -1,0 +1,15 @@
+<ScrollView>
+    <StackLayout class="main-container">
+        <Image class="logo" src="res://pineapple_logo" horizontalAlignment="center"></Image>
+        <StackLayout class="register-stacklayout">
+            <Label text="Registrieren"></Label>
+            <Button class="register-button" text="Organisation" (tap)="onRegisterOrganisation()"></Button>
+            <Button class="register-button" text="Eltern" (tap)="onRegisterParent()"></Button>
+        </StackLayout>
+        <StackLayout>
+            <Label text="Ich habe mich bereits registriert."></Label>
+            <Button class="login-button" text="Anmelden" (tap)="onLogin()"></Button>
+        </StackLayout>
+    </StackLayout>
+</ScrollView>
+<app-busy-indicator [IsBusy]="routerService.IsBusy"></app-busy-indicator>

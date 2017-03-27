@@ -1,0 +1,20 @@
+@import 'variables';
+@import 'styles/helpers';
+
+.main-container {
+    @include padding(24px);
+}
+
+.logo {
+    margin-bottom: 45px;
+    width: 60%;
+}
+
+.info-label {
+    @include marginLeft;   
+}
+
+Button {
+    background-color: $pineAppleGreenColor;
+    color: $white;
+}

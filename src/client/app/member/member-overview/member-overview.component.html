@@ -1,0 +1,39 @@
+<ActionBar title="Kinder">
+    <NavigationButton android.systemIcon="ic_menu_back" (tap)="onBack()"></NavigationButton>
+    <ActionItem *ngIf="hasAddButton" (tap)="onAdd()" android.systemIcon="ic_menu_add"></ActionItem>
+</ActionBar>
+<GridLayout rows="*, auto">
+    <StackLayout class="main-container" row="0">
+    <TextField class="member-search font-awesome" hint="&#xf002; Suche..." [(ngModel)]="filter"></TextField>
+        <Label *ngIf="items.length == 0" text="Keine Kinder vorhanden"></Label>
+        <RadListView id="listView" [items]="items | memberFilter:filter" selectionBehavior="Press" (itemSelected)="onItemSelected($event)" (itemSwipeProgressEnded)="onSwipeCellFinished($event)"
+            (itemSwipeProgressStarted)="onSwipeCellStarted($event)" [itemSwipe]="isOrganisation">
+            <template tkListItemTemplate let-item="item">
+                <StackLayout class="member-item" orientation="horizontal">
+                    <StackLayout class="image-container">
+                        <Image [imageSource]="item.imageSource" stretch="aspectFill"></Image>
+                    </StackLayout>
+                    <StackLayout class="member-detail" orientation="vertical">
+                        <GridLayout columns="*, auto">
+                            <Label class="member-detail-name" text="{{item.name + ' ' + item.surname}}" column="0"></Label>
+                            <Label *ngIf="!item.hasAbsence" class="member-detail-status-present" horizontalAlignment="right" text="&#xf058;" column="1"></Label>
+                            <Label *ngIf="item.hasAbsence" class="member-detail-status-absence" horizontalAlignment="right" text="&#xf057;" column="1"></Label>
+                        </GridLayout>
+                        <Label class="member-detail-nickname" text="{{'Rufname: ' + ' ' + item.callingName}}"></Label>
+                        <Label class="member-detail-group" text="{{'Klasse: ' + item.group.name}}"></Label>
+                    </StackLayout>
+                </StackLayout>
+            </template>
+            <GridLayout *tkListItemSwipeTemplate columns="*, auto" class="listItemSwipeGridLayout" (tap)="onRightSwipeClick($event)">
+                <StackLayout id="delete-view" class="delete-view-stack-layout" col="1" (tap)="onRightSwipeClick($event)"
+                    verticalAlignment="center" horizontalAlignment="center" paddingLeft="22" paddingRight="16">
+                    <Label text="&#xf014;" class="listview-delete-item-text font-awesome"></Label>
+                </StackLayout>
+            </GridLayout>
+        </RadListView>
+    </StackLayout>
+    <StackLayout row="1">
+        <app-navigation [navItems]="navItems"></app-navigation>
+    </StackLayout>
+</GridLayout>
+<app-busy-indicator [isBusy]="routerService.isBusy"></app-busy-indicator>

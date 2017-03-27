@@ -1,0 +1,32 @@
+@import 'variables';
+@import 'styles/helpers';
+
+.main-container {
+    @include padding(24px);
+}
+
+.logo {
+    margin-bottom: 45px;
+    width: 60%;
+}
+
+.email-stacklayout {
+    margin-bottom: 30px;
+}
+
+.email-input {
+    @include margin;
+    background-color: $white;
+    border-width: 1px;
+    border-style: solid;
+    border-color: lighten($pineAppleColor, 52);
+}
+
+Button {
+    background-color: $pineAppleGreenColor;
+    color: $white;
+}
+
+Label {
+    @include marginLeft;
+}

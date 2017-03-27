@@ -1,0 +1,19 @@
+@import 'variables';
+@import 'styles/helpers';
+
+.main-container {
+    @include main-container-margin;
+}
+
+.logo {
+    margin-bottom: 20px;
+    width: 45%;
+}
+
+.submit-button {
+    background-color: $submitColor;
+    color: $white;
+    font-weight: bold;
+    margin-left: 11px;
+    margin-right: 11px;
+}

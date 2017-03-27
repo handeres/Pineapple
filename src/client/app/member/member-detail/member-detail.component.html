@@ -1,0 +1,60 @@
+<ActionBar>
+    <NavigationButton android.systemIcon="ic_menu_back" (tap)="onBack()"></NavigationButton>
+    <ActionItem *ngIf="!isFirstLogin" (tap)="onSubmit()" android.systemIcon="ic_menu_save"></ActionItem>
+</ActionBar>
+<GridLayout rows="*, auto">
+    <ScrollView>
+        <StackLayout row="0">
+            <StackLayout class="image-container">
+                <Image [imageSource]="memberForm.member.imageSource" (tap)="onSelectSingleTap($event)" horizontalAlignment="center" stretch="aspectFill"></Image>
+            </StackLayout>
+            <RadDataForm #memberDataFormComp tkExampleTitle tkToggleNavButton IsTextSearchEnabled="False" [source]="memberForm.member">
+                <TKEntityProperty autoCompleteDisplayMode="" tkDataFormProperty name="_id" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="groupId" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="parentId" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="hasAbsence" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="imageSource" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty  name="name" displayName="Vorname" index="0">
+                    <TKMinimumLengthValidator tkEntityPropertyValidators errorMessage="Bitten einen Vornamen eingeben!" length="1"></TKMinimumLengthValidator>
+                    <TKPropertyEditor tkEntityPropertyEditor type="Text">
+                        <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#DE081F" editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                    </TKPropertyEditor>
+                </TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="surname" displayName="Nachname" index="1">
+                    <TKMinimumLengthValidator tkEntityPropertyValidators errorMessage="Bitten einen Nachnamen eingeben!" length="1"></TKMinimumLengthValidator>
+                    <TKPropertyEditor tkEntityPropertyEditor type="Text">
+                        <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#DE081F" editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                    </TKPropertyEditor>
+                </TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="callingName" displayName="Rufname" index="2">
+                    <TKPropertyEditor tkEntityPropertyEditor type="Text">
+                        <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#DE081F" editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                    </TKPropertyEditor>
+                </TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="birthday" displayName="Geburtstag" index="3">
+                    <TKMinimumLengthValidator tkEntityPropertyValidators errorMessage="Bitte den Geburtstag eingeben!" length="1"></TKMinimumLengthValidator>
+                    <TKPropertyEditor tkEntityPropertyEditor type="DatePicker">
+                        <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#DE081F" editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                    </TKPropertyEditor>
+                </TKEntityProperty>
+                <TKEntityProperty  [readOnly]="!isOrganisation" tkDataFormProperty  name="groupName" displayName="Klasse" index="5" [valuesProvider]="groupNames">
+                    <TKPropertyEditor  tkEntityPropertyEditor type="Picker">
+                        <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#DE081F" editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                    </TKPropertyEditor>
+                </TKEntityProperty>
+                <TKEntityProperty readOnly="true" tkDataFormProperty name="contractId" displayName="Vertrags ID" index="4">
+                    <TKPropertyEditor tkEntityPropertyEditor type="Text">
+                        <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#DE081F" editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                    </TKPropertyEditor>
+                </TKEntityProperty>
+            </RadDataForm>
+            <Button *ngIf="isFirstLogin" class="submit-button member-action-button" text="Weiter" (tap)="onSubmit()"></Button>
+            <Button *ngIf="!isFirstLogin" class="submit-button member-action-button" text="Eltern" (tap)="onParent()"></Button>
+            <Button *ngIf="!isFirstLogin" class="submit-button member-action-button" text="Abwesenheit" (tap)="onAbsence()"></Button>
+        </StackLayout>
+    </ScrollView>
+    <StackLayout row="1">
+        <app-navigation [navItems]="navItems"></app-navigation>
+    </StackLayout>
+</GridLayout>
+<app-busy-indicator [isBusy]="routerService.isBusy"></app-busy-indicator>

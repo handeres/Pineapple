@@ -1,0 +1,102 @@
+@import 'variables';
+@import 'styles/helpers';
+
+ActionBar {
+    background-color: $pineAppleTimeTableColor;
+    color: $white;
+}
+
+.main-container {
+    @include main-container-margin(15px);
+}
+
+.timetable-search {
+    @extend .search-input;
+}
+
+.timetable-item {
+    @extend .list-view-item;
+}
+
+.timetable-date {
+    border-color: $pineAppleTimeTableColor;
+    border-width: 1px;
+    width: 60px;
+}
+
+.timetable-date-month {
+    background-color: $pineAppleTimeTableColor;
+    color: $white;
+    text-align: center;
+    width: 100%;
+}
+
+.timetable-date-day {
+    background-color: $white;
+    color: $pineAppleTimeTableColor;
+    font: {
+        size: 24px;
+        weight: bold;
+    };
+    text-align: center;
+    width: 20%;
+}
+
+.timetable-detail {
+    background-color: $white;
+    border-color: $pineAppleColor;
+    border-width: 0px;
+}
+
+.timetable-detail-title {
+    background-color: $white;
+    color: $black;
+    font-weight: bold;
+   // margin-left: 30px;
+    margin-left: 0;
+    margin-top: 6px;
+    width: 100%;
+}
+
+.timetable-detail-description {
+    background-color: $white;
+    color: $black;
+    font-size: 12px;
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 15%;
+}
+
+.timetable-detail-description-short {
+    @extend .timetable-detail-description;
+    width: 5%;
+}
+
+.deleteViewStackLayout {
+    background-color: $warnColor;
+    border-width: 1px;
+    border-color: lighten($pineAppleColor, 52);
+    height: 100%;
+    margin-bottom: 10px;
+}
+
+.listview-delete-item-text {
+    background-color: $warnColor;
+    color: $white;
+    font-size: 20px;
+}
+
+
+.navigation-container {
+    border-width: 1px;
+    border-color: lighten($pineAppleColor, 52);
+    margin: 0;
+    padding: 0;
+}
+
+.navigation-button {
+    background-color: $pineAppleColor;
+    color: $white;
+    margin: 0;
+    padding: 0;
+}

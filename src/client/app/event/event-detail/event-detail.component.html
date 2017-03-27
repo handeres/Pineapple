@@ -1,0 +1,57 @@
+<ActionBar title="Event Detail">
+    <NavigationButton android.systemIcon="ic_menu_back" (tap)="onBack()"></NavigationButton>
+    <ActionItem *ngIf="isOrganisation" android.systemIcon="ic_menu_save" (tap)="onSave()"></ActionItem>
+</ActionBar>
+<GridLayout rows="*, auto">
+    <StackLayout row="0">
+        <RadDataForm #eventDataFormComp [source]="event">
+            <TKEntityProperty tkDataFormProperty name="__v" hidden="true"></TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="_id" hidden="true"></TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="organisationId" hidden="true"></TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="createUserId" hidden="true"></TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="createDateTime" hidden="true"></TKEntityProperty>
+            <TKPropertyGroup tkDataFormGroups collapsible="true" name="Ereignis" hidden="false">
+                <TKDataFormGridLayout tkPropertyGroupLayout></TKDataFormGridLayout>
+                <TKEntityProperty tkPropertyGroupProperties name="title" displayName="Titel" index="0" [readOnly]="!isOrganisation">
+                    <TKMinimumLengthValidator tkEntityPropertyValidators errorMessage="Bitte einen Titel eingeben!" length="1"></TKMinimumLengthValidator>
+                    <TKPropertyEditor tkEntityPropertyEditor type="Text">
+                        <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#00A9EB" editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                    </TKPropertyEditor>
+                </TKEntityProperty>
+                <TKEntityProperty tkPropertyGroupProperties name="description" displayName="Beschreibung" index="1" [readOnly]="!isOrganisation">
+                    <TKMinimumLengthValidator tkEntityPropertyValidators errorMessage="Bitte einen Beschreibung eingeben!" length="1"></TKMinimumLengthValidator>
+                    <TKPropertyEditor tkEntityPropertyEditor type="MultilineText">
+                        <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#00A9EB" editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                    </TKPropertyEditor>
+                </TKEntityProperty>
+            </TKPropertyGroup>
+            <TKPropertyGroup tkDataFormGroups collapsible="true" name="Zeit" hidden="false">
+                <TKDataFormGridLayout tkPropertyGroupLayout></TKDataFormGridLayout>
+                <TKEntityProperty tkPropertyGroupProperties name="from" displayName="Von" index="0" columnIndex="0" [readOnly]="!isOrganisation">
+                    <TKPropertyEditor tkEntityPropertyEditor type="DatePicker">
+                        <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#00A9EB" editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                    </TKPropertyEditor>
+                </TKEntityProperty>
+                <TKEntityProperty tkPropertyGroupProperties name="timeFrom" displayName="Start" index="0" columnIndex="1" [readOnly]="!isOrganisation">
+                    <TKPropertyEditor tkEntityPropertyEditor type="TimePicker">
+                        <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#00A9EB" editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                    </TKPropertyEditor>
+                </TKEntityProperty>
+                <TKEntityProperty tkPropertyGroupProperties name="to" displayName="Bis" index="1" columnIndex="0" [readOnly]="!isOrganisation">
+                    <TKPropertyEditor tkEntityPropertyEditor type="DatePicker">
+                        <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#00A9EB" editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                    </TKPropertyEditor>
+                </TKEntityProperty>
+                <TKEntityProperty tkPropertyGroupProperties name="timeTo" displayName="Ende" index="1" columnIndex="1" [readOnly]="!isOrganisation">
+                    <TKPropertyEditor tkEntityPropertyEditor type="TimePicker">
+                        <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#00A9EB" editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                    </TKPropertyEditor>
+                </TKEntityProperty>
+            </TKPropertyGroup>
+        </RadDataForm>
+    </StackLayout>
+    <StackLayout row="1">
+        <app-navigation [navItems]="navItems"></app-navigation>
+    </StackLayout>
+</GridLayout>
+<app-busy-indicator [isBusy]="routerService.isBusy"></app-busy-indicator>

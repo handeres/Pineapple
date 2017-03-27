@@ -1,0 +1,18 @@
+<ActionBar title="Anmelden">
+    <NavigationButton android.systemIcon="ic_menu_back" (tap)="onBack()"></NavigationButton>
+</ActionBar>
+<ScrollView>
+    <StackLayout class="main-container">
+        <Image class="logo" src="res://pineapple_logo" horizontalAlignment="center"></Image>
+        <StackLayout class="email-stacklayout">
+            <Label text="Verwenden Sie ihr Pineapple-Konto."></Label>
+            <TextField class="email-input" hint="E-Mail Adresse" keyboardType="email" [(ngModel)]="userName" autocorrect="false" autocapitalizationType="none"></TextField>
+            <Button text="Weiter" (tap)="onSubmit()"></Button>
+        </StackLayout>
+        <StackLayout>
+            <Label text="Sie haben noch kein Konto?"></Label>
+            <Button text="Dann erstellen Sie jetzt eins!" (tap)="onRegister()"></Button>
+        </StackLayout>
+    </StackLayout>
+</ScrollView>
+<app-busy-indicator [isBusy]="routerService.isBusy"></app-busy-indicator>

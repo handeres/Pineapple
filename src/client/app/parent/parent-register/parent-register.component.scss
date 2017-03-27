@@ -1,0 +1,11 @@
+@import 'variables';
+@import 'styles/helpers';
+
+.main-container {
+    @include main-container-margin;
+}
+
+.logo {
+    margin-bottom: 20px;
+    width: 45%;
+}

@@ -1,0 +1,43 @@
+<ActionBar title="Abwesenheit">
+  <NavigationButton android.systemIcon="ic_menu_back" (tap)="onBack()"></NavigationButton>
+  <ActionItem *ngIf="!isOrganisation" (tap)="onSubmit()" android.systemIcon="ic_menu_save"></ActionItem>
+</ActionBar>
+<GridLayout rows="*, auto">
+  <StackLayout row="0">
+    <RadDataForm #absenceRegisterDataFormComp tkExampleTitle tkToggleNavButton commitMode="Immediate" [source]="absenceForm.absence">
+      <TKEntityProperty tkDataFormProperty name="_id" hidden="true"></TKEntityProperty>
+      <TKEntityProperty tkDataFormProperty name="memberId" hidden="true"></TKEntityProperty>
+      <TKEntityProperty tkDataFormProperty name="parentId" hidden="true"></TKEntityProperty>
+      <TKEntityProperty tkDataFormProperty name="name" hidden="true"></TKEntityProperty>
+      <TKEntityProperty tkDataFormProperty name="surname" hidden="true"></TKEntityProperty>
+      <TKEntityProperty tkDataFormProperty name="hasOtherReason" hidden="true"></TKEntityProperty>
+      <TKEntityProperty tkDataFormProperty name="otherReason" hidden="true"></TKEntityProperty>
+      <TKEntityProperty tkDataFormProperty name="picture" hidden="true"></TKEntityProperty>
+      <TKEntityProperty [readOnly]="isEditMode" tkDataFormProperty name="member" displayName="Kind" index="0" [valuesProvider]="memberNames">
+        <TKPropertyEditor tkEntityPropertyEditor type="Picker">
+          <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#F6C800" editorVerticalOffset="-30"></TKPropertyEditorStyle>
+        </TKPropertyEditor>
+      </TKEntityProperty>
+      <TKEntityProperty [readOnly]="isEditMode" tkDataFormProperty name="reason" displayName="Grund der Abwesenheit" index="1"
+        [valuesProvider]="absenceForm.reasons">
+        <TKPropertyEditor tkEntityPropertyEditor type="Picker">
+          <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#F6C800" editorVerticalOffset="-30"></TKPropertyEditorStyle>
+        </TKPropertyEditor>
+      </TKEntityProperty>
+      <TKEntityProperty [readOnly]="isOrganisation" tkDataFormProperty name="fromDate" displayName="Von" index="2">
+        <TKPropertyEditor tkEntityPropertyEditor type="DatePicker">
+          <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#F6C800" editorVerticalOffset="-30"></TKPropertyEditorStyle>
+        </TKPropertyEditor>
+      </TKEntityProperty>
+      <TKEntityProperty [readOnly]="isOrganisation" tkDataFormProperty name="untilDate" displayName="Bis" index="3">
+        <TKPropertyEditor tkEntityPropertyEditor type="DatePicker">
+          <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#F6C800" editorVerticalOffset="-30"></TKPropertyEditorStyle>
+        </TKPropertyEditor>
+      </TKEntityProperty>
+    </RadDataForm>
+  </StackLayout>
+  <StackLayout row="1">
+    <app-navigation [navItems]="navItems"></app-navigation>
+  </StackLayout>
+</GridLayout>
+<app-busy-indicator [isBusy]="routerService.isBusy"></app-busy-indicator>

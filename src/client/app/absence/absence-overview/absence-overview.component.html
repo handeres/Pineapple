@@ -1,0 +1,40 @@
+<ActionBar title="Abwesenheiten">
+  <NavigationButton android.systemIcon="ic_menu_back" (tap)="onBack()"></NavigationButton>
+  <ActionItem *ngIf="!isOrganisation" (tap)="onAdd()" android.systemIcon="ic_menu_add"></ActionItem>
+</ActionBar>
+
+<GridLayout rows="*, auto">
+    <StackLayout class="main-container" row="0">
+        <TextField class="absence-search font-awesome" hint="&#xf002; Suche..." [(ngModel)]="filter"></TextField>
+        <Label *ngIf="items.length == 0" text="Keine Abwesenheiten vorhanden"></Label>
+        <RadListView id="listView" [items]="items | absenceFilter:filter" selectionBehavior="Press" (itemSelected)="onItemSelected($event)" (itemSwipeProgressEnded)="onSwipeCellFinished($event)"
+                    (itemSwipeProgressStarted)="onSwipeCellStarted($event)" [itemSwipe]="!isOrganisation">
+            <template tkListItemTemplate let-item="item">
+                <StackLayout class="absence-item" orientation="horizontal">
+                    <StackLayout class="image-container">
+                        <Image [imageSource]="item.imageSource" stretch="aspectFill"></Image>
+                    </StackLayout>
+                    <StackLayout class="absence-detail" orientation="vertical">
+                        <Label class="absence-detail-title" text="{{item.name + ' ' + item.surname}}"></Label>
+                        <Label class="absence-detail-reason" [text]="item.reason"></Label>
+                        <StackLayout orientation="horizontal">
+                            <Label class="absence-detail-from-date" [text]="item.fromDate | date:'dd.MM.yyyy'"></Label>
+                            <Label class="absence-detail-date-divider" text=" - "></Label>
+                            <Label class="absence-detail-from-date" [text]="item.untilDate | date:'dd.MM.yyyy'"></Label>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </template>
+            <GridLayout *tkListItemSwipeTemplate columns="*, auto" class="listItemSwipeGridLayout" (tap)="onRightSwipeClick($event)">
+                <StackLayout id="delete-view" class="delete-view-stack-layout" col="1" (tap)="onRightSwipeClick($event)"
+                    verticalAlignment="center" horizontalAlignment="center" paddingLeft="22" paddingRight="16">
+                    <Label text="&#xf014;" class="listview-delete-item-text font-awesome"></Label>
+                </StackLayout>
+            </GridLayout>
+        </RadListView>
+    </StackLayout>
+    <StackLayout row="1">
+        <app-navigation [navItems]="navItems"></app-navigation>
+    </StackLayout>
+</GridLayout>
+<app-busy-indicator [isBusy]="routerService.isBusy"></app-busy-indicator>

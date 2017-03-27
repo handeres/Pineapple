@@ -1,0 +1,64 @@
+@import 'variables';
+@import 'styles/helpers';
+
+ActionBar {
+    background-color: $pineAppleChildColor;
+    color: $white;
+}
+
+.main-container {
+    @include main-container-margin(15px);
+}
+
+.member-search {
+    @extend .search-input;
+}
+
+.member-item {
+    @extend .list-view-item;
+}
+
+.member-detail {
+    background-color: $white;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 6px;
+}
+
+.member-detail-name {
+    background-color: $white;
+    color: $pineAppleChildColor;
+    font: {
+        size: 15px;
+        weight: bold;
+    };
+}
+
+.member-detail-status {
+    @extend .font-awesome;
+    background-color: $white;
+    margin-top: 2px;
+    text-align: right;
+}
+
+.member-detail-status-present {
+    @extend .member-detail-status;
+    color: $pineAppleMessageColor;
+}
+
+.member-detail-status-absence {
+    @extend .member-detail-status;
+    color: $pineAppleChildColor;
+}
+
+.member-detail-nickname,
+.member-detail-group {
+    background-color: $white;
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+.image-container {
+    height: 75px;
+    width: 75px;
+}

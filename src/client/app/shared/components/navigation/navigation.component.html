@@ -1,0 +1,6 @@
+<GridLayout class="navigation-container" [columns]="navItems.length | autogrid:'*'">
+    <StackLayout (tap)="onNavigate(item)" *ngFor="let item of navItems" [col]="item.index">
+        <Label class="{{'navigation-image-' + item.id}}"></Label>
+        <Label class="navigation-text" [text]="item.name"></Label>
+    </StackLayout>
+</GridLayout>

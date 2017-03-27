@@ -1,0 +1,8 @@
+<ActionBar title="Erfolgreich registriert"></ActionBar>
+<StackLayout class="main-container">
+    <Image class="logo" src="res://pineapple_logo" horizontalAlignment="center"></Image>
+    <Label class="info-label" textWrap="true" text="Vielen Dank für Ihr Vertrauen. Sie erhalten eine E-Mail mit einer Vertrags Id. Mit dieser können Sie ein Benutzer Konto erstellen."></Label>
+    <Button text="Benutzer Konto erstellen" (tap)="onRegister()"></Button>
+    <Button text="Home" (tap)="onHome()"></Button>
+</StackLayout>
+<app-busy-indicator [isBusy]="routerService.isBusy"></app-busy-indicator>

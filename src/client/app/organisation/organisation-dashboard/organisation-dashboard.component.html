@@ -1,0 +1,19 @@
+<ActionBar title="Dashboard">
+    <NavigationButton android.systemIcon="ic_menu_back" (tap)="onBack()"></NavigationButton>
+</ActionBar>
+<side-drawer [navMenu]="navMenu" [username]="username">
+    <ScrollView>
+        <WrapLayout #container class="main-container">
+            <CardView [id]="cardView.id" margin="10" elevation="5" radius="5" *ngFor="let cardView of cardViews">
+                <StackLayout class="{{'card-view-module-' + cardView.id}}">
+                    <Image class="{{'card-view-image-' + cardView.id}}" [src]="cardView.image" horizontalAlignment="center"></Image>
+                    <Label class="{{'card-view-title-' + cardView.id}}" [text]="cardView.title" horizontalAlignment="center"></Label>
+                    <StackLayout *ngFor="let action of cardView.actions" orientation="horizontal">
+                        <Button text="&#xf055;" class="font-awesome" (tap)="action.callback()"></Button>
+                    </StackLayout>
+                </StackLayout>
+            </CardView>
+        </WrapLayout>
+    </ScrollView>
+</side-drawer>
+<app-busy-indicator [isBusy]="routerService.isBusy"></app-busy-indicator>

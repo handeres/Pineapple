@@ -1,0 +1,142 @@
+@import 'variables';
+@import 'styles/helpers';
+
+ActionBar {
+    @include dashboard-actionbar;
+}
+
+.main-container {
+    @include main-container-margin(10px);
+}
+
+$baseCardViewModuleName: 'card-view-module-';
+.#{$baseCardViewModuleName}class {
+    background-color: $pineAppleClassColor;
+}
+
+.#{$baseCardViewModuleName}event {
+    background-color: $pineAppleEventColor;
+}
+
+.#{$baseCardViewModuleName}absence {
+    background-color: $pineAppleAbsenceColor;
+}
+
+.#{$baseCardViewModuleName}message {
+    background-color: $pineAppleMessageColor;
+}
+
+.#{$baseCardViewModuleName}child {
+    background-color: $pineAppleChildColor;
+}
+
+.#{$baseCardViewModuleName}pinnwand {
+    background-color: transparent;
+}
+
+$baseCardViewImageName: 'card-view-image-';
+@mixin card-view-image {
+    margin: 10px 25px;
+    width: 31%;
+}
+
+.#{$baseCardViewImageName}class {
+    @include card-view-image;
+}
+
+.#{$baseCardViewImageName}event {
+    @include card-view-image;
+}
+
+.#{$baseCardViewImageName}absence {
+    @include card-view-image;
+}
+
+.#{$baseCardViewImageName}message {
+    @include card-view-image;
+}
+
+.#{$baseCardViewImageName}child {
+    @include card-view-image;
+}
+
+.#{$baseCardViewImageName}pinnwand {
+    @include card-view-image;
+}
+
+$baseCardViewTitleName: 'card-view-title-';
+@mixin card-view-title($color: transparent) {
+    background-color: $color;
+    color: $white;
+    font: {
+        family: $fontSchoolbell;
+        size: 24px;
+    }
+    margin-bottom: 12px;
+}
+
+.#{$baseCardViewTitleName}class {
+    @include card-view-title($pineAppleClassColor);
+}
+
+.#{$baseCardViewTitleName}event {
+    @include card-view-title($pineAppleEventColor);
+}
+
+.#{$baseCardViewTitleName}absence {
+    @include card-view-title($pineAppleAbsenceColor);
+}
+
+.#{$baseCardViewTitleName}message {
+    @include card-view-title($pineAppleMessageColor);
+}
+
+.#{$baseCardViewTitleName}child {
+    @include card-view-title($pineAppleChildColor);
+}
+
+.#{$baseCardViewTitleName}pinnwand {
+    @include card-view-title;
+    color: $pineAppleColor;
+}
+
+$baseCardViewInfoName: 'card-view-info-';
+@mixin card-view-info($color: transparent) {
+    background-color: $color;
+    color: $white;
+    font: {
+        size: 11px;
+    }
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.#{$baseCardViewInfoName}class {
+    @include card-view-info($pineAppleClassColor);
+}
+
+.#{$baseCardViewInfoName}event {
+    @include card-view-info($pineAppleEventColor);
+}
+
+.#{$baseCardViewInfoName}absence {
+    @include card-view-info($pineAppleAbsenceColor);
+}
+
+.#{$baseCardViewInfoName}message {
+    @include card-view-info($pineAppleMessageColor);
+}
+
+.#{$baseCardViewInfoName}child {
+    @include card-view-info($pineAppleChildColor);
+}
+
+.#{$baseCardViewInfoName}pinnwand {
+    @include card-view-info;
+    color: $pineAppleColor;
+}
+
+Button {
+    height: 36px;
+    width: 36px;
+}

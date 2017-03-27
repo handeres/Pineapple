@@ -1,0 +1,48 @@
+@import 'variables';
+@import 'styles/helpers';
+
+.navigation-container {
+    margin: 0;
+    padding: 0;
+}
+
+.navigation-image {
+    background: {
+        color: $pineAppleSubNavColor;
+        position: center;
+        repeat: no-repeat;
+    };
+}
+
+.navigation-text {
+    background-color: $pineAppleSubNavColor;
+    color: $white;
+    font-size: 8px;
+    text-align: center;
+}
+
+$baseNavImageName: 'navigation-image-';
+.#{$baseNavImageName}home {
+    @extend .navigation-image;
+    background-image: url("res://home_nav");
+}
+
+.#{$baseNavImageName}group {
+    @extend .navigation-image;
+    background-image: url("res://class_nav");
+}
+
+.#{$baseNavImageName}event {
+    @extend .navigation-image;
+    background-image: url("res://event_nav");
+}
+
+.#{$baseNavImageName}absence {
+    @extend .navigation-image;
+    background-image: url("res://absence_nav");
+}
+
+.#{$baseNavImageName}child {
+    @extend .navigation-image;
+    background-image: url("res://child_nav");
+}

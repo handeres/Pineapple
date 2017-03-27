@@ -1,0 +1,80 @@
+@import 'variables';
+@import 'styles/helpers';
+
+ActionBar {
+    background-color: $pineAppleEventColor;
+    color: $white;
+}
+
+.main-container {
+    @include main-container-margin(15px);
+}
+
+.event-search {
+    @extend .search-input;
+}
+
+.event-item {
+    @extend .list-view-item;
+}
+
+.event-date {
+    border-color: $pineAppleEventColor;
+    border-width: 1px;
+    width: 60px;
+}
+
+.event-date-month {
+    background-color: $pineAppleEventColor;
+    color: $white;
+    text-align: center;
+    width: 100%;
+}
+
+.event-date-day {
+    background-color: $white;
+    color: $pineAppleEventColor;
+    font: {
+        size: 24px;
+        weight: bold;
+    };
+    text-align: center;
+    width: 100%;
+}
+
+.event-detail {
+    background-color: $white;
+    border-color: $pineAppleColor;
+    border-width: 0px;
+}
+
+.event-detail-title {
+    background-color: $white;
+    color: $black;
+    font-weight: bold;
+    margin-left: 30px;
+    margin-top: 6px;
+    width: 100%;
+}
+
+.event-detail-description {
+    background-color: $white;
+    color: $black;
+    font-size: 12px;
+    margin-left: 30px;
+    width: 100%;
+}
+
+.deleteViewStackLayout {
+    background-color: $warnColor;
+    border-width: 1px;
+    border-color: lighten($pineAppleColor, 52);
+    height: 100%;
+    margin-bottom: 10px;
+}
+
+.listview-delete-item-text {
+    background-color: $warnColor;
+    color: $white;
+    font-size: 20px;
+}

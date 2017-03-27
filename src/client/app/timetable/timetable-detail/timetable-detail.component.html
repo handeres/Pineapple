@@ -1,0 +1,178 @@
+<ActionBar title="Stundenplan">
+    <NavigationButton android.systemIcon="ic_menu_back" (tap)="onBackGroupDetail()"></NavigationButton>
+    <ActionItem *ngIf="isOrganisation" (tap)="onSubmit()" android.systemIcon="ic_menu_save"></ActionItem>
+</ActionBar>
+<StackLayout>
+    <RadDataForm #timetableDataFormComp [source]="itemForm">
+        <TKEntityProperty tkDataFormProperty name="__v" hidden="true"></TKEntityProperty>
+        <TKEntityProperty tkDataFormProperty name="_id" hidden="true"></TKEntityProperty>
+        <TKEntityProperty tkDataFormProperty name="dayname" hidden="true"></TKEntityProperty>
+        <TKPropertyGroup tkDataFormGroups collapsible="true" name="Montag" hidden="false">
+            <TKDataFormGridLayout tkPropertyGroupLayout></TKDataFormGridLayout>
+            <TKEntityProperty tkPropertyGroupProperties name="monday_textMorning" displayName="Morgen" index="0"  [readOnly]="!isOrganisation">
+                <TKPropertyEditor tkEntityPropertyEditor type="MultilineText">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#985296"  editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkPropertyGroupProperties name="monday_timefromMorning" displayName="Start" index="0" columnIndex="1" [readOnly]="!isOrganisation">
+                <TKPropertyEditor tkEntityPropertyEditor type="TimePicker">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#985296"  editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkPropertyGroupProperties name="monday_timeToMorning" displayName="Ende" index="1" columnIndex="1" [readOnly]="!isOrganisation">
+                <TKPropertyEditor tkEntityPropertyEditor type="TimePicker">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#985296"  editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkPropertyGroupProperties name="monday_textAfternoon" displayName="Nachmittag"  index="2"  [readOnly]="!isOrganisation">
+                <TKPropertyEditor tkEntityPropertyEditor type="MultilineText">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#985296"  editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkPropertyGroupProperties name="monday_timefromAfternoon" displayName="Nachmittag" index="2" columnIndex="1" [readOnly]="!isOrganisation">
+                <TKPropertyEditor tkEntityPropertyEditor type="TimePicker">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#985296"  editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkPropertyGroupProperties name="monday_timeToAfternoon" displayName="Ende" index="3" columnIndex="1" [readOnly]="!isOrganisation">
+                <TKPropertyEditor tkEntityPropertyEditor type="TimePicker">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#985296"  editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+        </TKPropertyGroup>
+        <TKPropertyGroup tkDataFormGroups collapsible="true" name="Dienstag" hidden="false">
+            <TKDataFormGridLayout tkPropertyGroupLayout></TKDataFormGridLayout>
+            <TKEntityProperty tkPropertyGroupProperties name="tuesday_textMorning" displayName="Morgen" index="0"  [readOnly]="!isOrganisation">
+                <TKPropertyEditor tkEntityPropertyEditor type="MultilineText">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#985296"  editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkPropertyGroupProperties name="tuesday_timefromMorning" displayName="Start" index="0" columnIndex="1" [readOnly]="!isOrganisation">
+                <TKPropertyEditor tkEntityPropertyEditor type="TimePicker">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#985296"  editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkPropertyGroupProperties name="tuesday_timeToMorning" displayName="Ende" index="1" columnIndex="1" [readOnly]="!isOrganisation">
+                <TKPropertyEditor tkEntityPropertyEditor type="TimePicker">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#985296"  editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkPropertyGroupProperties name="tuesday_textAfternoon" displayName="Nachmittag"  index="2"  [readOnly]="!isOrganisation">
+                <TKPropertyEditor tkEntityPropertyEditor type="MultilineText">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#985296"  editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkPropertyGroupProperties name="tuesday_timefromAfternoon" displayName="Start" index="2" columnIndex="1" [readOnly]="!isOrganisation">
+                <TKPropertyEditor tkEntityPropertyEditor type="TimePicker">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#985296"  editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkPropertyGroupProperties name="tuesday_timeToAfternoon" displayName="Ende" index="3" columnIndex="1" [readOnly]="!isOrganisation">
+                <TKPropertyEditor tkEntityPropertyEditor type="TimePicker">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#985296"  editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+        </TKPropertyGroup>
+        <TKPropertyGroup tkDataFormGroups collapsible="true" name="Mittwoch" hidden="false">
+            <TKDataFormGridLayout tkPropertyGroupLayout></TKDataFormGridLayout>
+            <TKEntityProperty tkPropertyGroupProperties name="wednesday_textMorning" displayName="Morgen" index="0"  [readOnly]="!isOrganisation">
+                <TKPropertyEditor tkEntityPropertyEditor type="MultilineText">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#985296"  editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkPropertyGroupProperties name="wednesday_timefromMorning" displayName="Start" index="0" columnIndex="1" [readOnly]="!isOrganisation">
+                <TKPropertyEditor tkEntityPropertyEditor type="TimePicker">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#985296"  editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkPropertyGroupProperties name="wednesday_timeToMorning" displayName="Ende" index="1" columnIndex="1" [readOnly]="!isOrganisation">
+                <TKPropertyEditor tkEntityPropertyEditor type="TimePicker">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#985296"  editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkPropertyGroupProperties name="wednesday_textAfternoon" displayName="Nachmittag"  index="2"  [readOnly]="!isOrganisation">
+                <TKPropertyEditor tkEntityPropertyEditor type="MultilineText">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#985296"  editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkPropertyGroupProperties name="wednesday_timefromAfternoon" displayName="Start" index="2" columnIndex="1" [readOnly]="!isOrganisation">
+                <TKPropertyEditor tkEntityPropertyEditor type="TimePicker">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#985296"  editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkPropertyGroupProperties name="wednesday_timeToAfternoon" displayName="Ende" index="3" columnIndex="1" [readOnly]="!isOrganisation">
+                <TKPropertyEditor tkEntityPropertyEditor type="TimePicker">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#985296"  editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+        </TKPropertyGroup>
+        <TKPropertyGroup tkDataFormGroups collapsible="true" name="Donnerstag" hidden="false">
+            <TKDataFormGridLayout tkPropertyGroupLayout></TKDataFormGridLayout>
+            <TKEntityProperty tkPropertyGroupProperties name="thursday_textMorning" displayName="Morgen" index="0"  [readOnly]="!isOrganisation">
+                <TKPropertyEditor tkEntityPropertyEditor type="MultilineText">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#985296"  editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkPropertyGroupProperties name="thursday_timefromMorning" displayName="Start" index="0" columnIndex="1" [readOnly]="!isOrganisation">
+                <TKPropertyEditor tkEntityPropertyEditor type="TimePicker">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#985296"  editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkPropertyGroupProperties name="thursday_timeToMorning" displayName="Ende" index="1" columnIndex="1" [readOnly]="!isOrganisation">
+                <TKPropertyEditor tkEntityPropertyEditor type="TimePicker">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#985296"  editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkPropertyGroupProperties name="thursday_textAfternoon" displayName="Nachmittag"  index="2"  [readOnly]="!isOrganisation">
+                <TKPropertyEditor tkEntityPropertyEditor type="MultilineText">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#985296"  editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkPropertyGroupProperties name="thursday_timefromAfternoon" displayName="Start" index="2" columnIndex="1" [readOnly]="!isOrganisation">
+                <TKPropertyEditor tkEntityPropertyEditor type="TimePicker">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#985296"  editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkPropertyGroupProperties name="thursday_timeToAfternoon" displayName="Ende" index="3" columnIndex="1" [readOnly]="!isOrganisation">
+                <TKPropertyEditor tkEntityPropertyEditor type="TimePicker">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#985296"  editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+        </TKPropertyGroup>
+        <TKPropertyGroup tkDataFormGroups collapsible="true" name="Freitag" hidden="false">
+            <TKDataFormGridLayout tkPropertyGroupLayout></TKDataFormGridLayout>
+            <TKEntityProperty tkPropertyGroupProperties name="friday_textMorning" displayName="Morgen" index="0"  [readOnly]="!isOrganisation">
+                <TKPropertyEditor tkEntityPropertyEditor type="MultilineText">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#985296"  editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkPropertyGroupProperties name="friday_timefromMorning" displayName="Start" index="0" columnIndex="1" [readOnly]="!isOrganisation">
+                <TKPropertyEditor tkEntityPropertyEditor type="TimePicker">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#985296"  editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkPropertyGroupProperties name="friday_timeToMorning" displayName="Ende" index="1" columnIndex="1" [readOnly]="!isOrganisation">
+                <TKPropertyEditor tkEntityPropertyEditor type="TimePicker">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#985296"  editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkPropertyGroupProperties name="friday_textAfternoon" displayName="Nachmittag"  index="2"  [readOnly]="!isOrganisation">
+                <TKPropertyEditor tkEntityPropertyEditor type="MultilineText">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#985296"  editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkPropertyGroupProperties name="friday_timefromAfternoon" displayName="Start" index="2" columnIndex="1" [readOnly]="!isOrganisation">
+                <TKPropertyEditor tkEntityPropertyEditor type="TimePicker">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#985296"  editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+            <TKEntityProperty tkPropertyGroupProperties name="friday_timeToAfternoon" displayName="Ende" index="3" columnIndex="1" [readOnly]="!isOrganisation">
+                <TKPropertyEditor tkEntityPropertyEditor type="TimePicker">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelTextColor="#985296"  editorVerticalOffset="-30"></TKPropertyEditorStyle>
+                </TKPropertyEditor>
+            </TKEntityProperty>
+        </TKPropertyGroup>
+    </RadDataForm>
+</StackLayout>
+<app-busy-indicator [isBusy]="routerService.isBusy"></app-busy-indicator>
+

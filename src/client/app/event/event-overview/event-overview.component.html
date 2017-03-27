@@ -1,0 +1,35 @@
+<ActionBar title="Ereignisse">
+    <NavigationButton android.systemIcon="ic_menu_back" (tap)="onBack()"></NavigationButton>
+    <ActionItem *ngIf="isOrganisation" android.systemIcon="ic_menu_add" (tap)="onAdd()"></ActionItem>
+</ActionBar>
+<GridLayout rows="*, auto">
+    <StackLayout class="main-container" row="0">
+        <TextField class="event-search font-awesome" hint="&#xf002; Suche..." [(ngModel)]="filter"></TextField>
+        <Label *ngIf="items.length == 0" text="Keine Event vorhanden"></Label>
+        <RadListView id="listView" [items]="items | eventFilter:filter" selectionBehavior="Press" (itemSelected)="onItemSelected($event)" (itemSwipeProgressEnded)="onSwipeCellFinished($event)"
+            (itemSwipeProgressStarted)="onSwipeCellStarted($event)" [itemSwipe]="isOrganisation">
+            <template tkListItemTemplate let-item="item">
+                <StackLayout class="event-item" orientation="horizontal">
+                    <StackLayout class="event-date" orientation="vertical">
+                        <Label class="event-date-month" [text]="item.from | date:'MMM'" horizontalAlignment="center"></Label>
+                        <Label class="event-date-day" [text]="item.from | date:'dd'" horizontalAlignment="center"></Label>
+                    </StackLayout>
+                    <StackLayout class="event-detail" orientation="vertical">
+                        <Label class="event-detail-title" [text]="item.title"></Label>
+                        <Label class="event-detail-description" [text]="item.description"></Label>
+                    </StackLayout>
+                </StackLayout>
+            </template>
+            <GridLayout *tkListItemSwipeTemplate columns="*, auto" class="listItemSwipeGridLayout">
+                <StackLayout id="delete-view" class="deleteViewStackLayout" col="1" (tap)="onRightSwipeClick($event)"
+                    verticalAlignment="center" horizontalAlignment="center" paddingLeft="18" paddingRight="16">
+                    <Label text="&#xf014;" class="listview-delete-item-text font-awesome"></Label>
+                </StackLayout>
+            </GridLayout>
+        </RadListView>
+    </StackLayout>
+    <StackLayout row="1">
+        <app-navigation [navItems]="navItems"></app-navigation>
+    </StackLayout>
+</GridLayout>
+<app-busy-indicator [isBusy]="routerService.isBusy"></app-busy-indicator>

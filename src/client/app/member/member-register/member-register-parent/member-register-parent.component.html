@@ -1,0 +1,12 @@
+<ActionBar title="Registrieren eines Kindes">
+    <NavigationButton android.systemIcon="ic_menu_back" (tap)="onBack()"></NavigationButton>
+    <ActionItem (tap)="onSubmit()" android.systemIcon="ic_menu_save"></ActionItem>
+</ActionBar>
+<StackLayout>
+    <RadDataForm  #contractDataFormComp tkExampleTitle tkToggleNavButton IsTextSearchEnabled="False" [source]="contract">
+        <TKEntityProperty tkDataFormProperty name="id" displayName="Vertrags ID" index="0">
+            <TKMinimumLengthValidator tkEntityPropertyValidators errorMessage="Bitte eine Vertrags ID eingeben!" length="1"></TKMinimumLengthValidator>
+        </TKEntityProperty>
+    </RadDataForm>
+</StackLayout>
+<app-busy-indicator [IsBusy]="routerService.IsBusy"></app-busy-indicator>

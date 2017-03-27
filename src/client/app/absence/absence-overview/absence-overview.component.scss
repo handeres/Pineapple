@@ -1,0 +1,47 @@
+@import 'variables';
+@import 'styles/helpers';
+
+ActionBar {
+    background-color: $pineAppleAbsenceColor;
+    color: $white;
+}
+
+.main-container {
+    @include main-container-margin(15px);
+}
+
+.absence-search {
+    @extend .search-input;
+}
+
+.absence-item {
+    @extend .list-view-item;
+}
+
+.absence-detail {
+    background-color: $white;
+    margin-left: 16px;
+    margin-top: 6px;
+}
+
+.absence-detail-title {
+    background-color: $white;
+    color: $pineAppleAbsenceColor;
+    font: {
+        size: 15px;
+        weight: bold;
+    };
+}
+
+.absence-detail-reason,
+.absence-detail-from-date,
+.absence-detail-date-divider,
+.absence-detail-from-date {
+    background-color: $white;
+    font-size: 12px;
+}
+
+.image-container {
+    height: 75px;
+    width: 75px;
+}

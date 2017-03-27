@@ -1,0 +1,38 @@
+@import 'variables';
+@import 'styles/helpers';
+
+.main-container {
+    @include padding(24px);
+}
+
+.logo {
+    margin-bottom: 45px;
+    width: 80%;
+}
+
+.register-stacklayout {
+    margin-bottom: 20px;
+}
+
+.button {
+    color: $white;
+    font: {
+        family: $fontSchoolbell;
+        size: 22px;
+    }
+    height: 60px;
+}
+
+.register-button {
+    background-color: $pineAppleGreenColor;
+    @extend .button;
+}
+
+.login-button {
+    background-color: $pineAppleEventColor;
+    @extend .button;
+}
+
+Label {
+    @include marginLeft;
+}

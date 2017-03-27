@@ -1,0 +1,70 @@
+@import 'variables';
+
+@mixin dashboard-actionbar {
+    background-color: $pineAppleDashboardActionBarColor;
+    color: $white;
+}
+
+@mixin main-container-margin($margin: 10px) {
+    padding: $margin;
+}
+
+@mixin padding($padding: 10px) {
+    padding: $padding;
+}
+
+@mixin margin($margin: 4px) {
+    margin: $margin;
+}
+
+@mixin marginLeft($margin: 4px) {
+    margin-left: $margin;
+}
+
+.search-input {
+    background-color: $white;
+    border-color: lighten($pineAppleColor, 52);
+    border-width: 1px;
+    color: $black;
+    margin-bottom: 10px;
+}
+
+.list-view-item {
+    background-color: $white;
+    border-color: lighten($pineAppleColor, 52);
+    border-width: 1px;
+    margin-bottom: 5px;
+}
+
+.delete-view-stack-layout {
+    background-color: $warnColor;
+    border-width: 1px;
+    border-color: lighten($pineAppleColor, 52);
+    height: 100%;
+    margin-bottom: 10px;
+}
+
+.listview-delete-item-text {
+    background-color: $warnColor;
+    color: $white;
+    font-size: 20px;
+}
+
+.border-transparent {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.font-awesome {
+    font-family: "FontAwesome";
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+}
+
+.form-input {
+    color: $pineAppleGreenColor;
+    font: {
+        weight: bold;
+    }
+}

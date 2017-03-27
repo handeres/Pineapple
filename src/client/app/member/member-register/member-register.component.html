@@ -1,0 +1,18 @@
+<ActionBar title="Registrieren eines Kindes">
+    <NavigationButton android.systemIcon="ic_menu_back" (tap)="onBack()"></NavigationButton>
+    <ActionItem (tap)="onSubmit()" android.systemIcon="ic_menu_save"></ActionItem>
+</ActionBar>
+<StackLayout>
+    <RadDataForm #memberDataFormComp [source]="memberRegister">
+        <TKEntityProperty tkDataFormProperty name="name" displayName="Vorname" index="0">
+            <TKMinimumLengthValidator tkEntityPropertyValidators errorMessage="Bitte einen Vornamen eingeben!" length="1"></TKMinimumLengthValidator>
+        </TKEntityProperty>
+        <TKEntityProperty tkDataFormProperty name="surname" displayName="Nachname" index="1">
+            <TKMinimumLengthValidator tkEntityPropertyValidators errorMessage="Bitte einen Nachnamen eingeben!" length="1"></TKMinimumLengthValidator>
+        </TKEntityProperty>
+        <TKEntityProperty  tkDataFormProperty name="groupName" displayName="Klasse" index="2" [valuesProvider]="groupNames">
+            <TKPropertyEditor  tkEntityPropertyEditor type="Picker"></TKPropertyEditor>
+        </TKEntityProperty>
+    </RadDataForm>
+</StackLayout>
+<app-busy-indicator [isBusy]="routerService.isBusy"></app-busy-indicator>
