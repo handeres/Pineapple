@@ -1,5 +1,5 @@
 # Pineapple
-![Pineapple](https://github.com/handeres/Pineapple/blob/master/src/client/app/App_Resources/Android/drawable-hdpi/logo.png)
+![Pineapple](https://github.com/handeres/Pineapple/blob/master/src/client/app/App_Resources/Android/drawable-hdpi/pineappleDocu.png)
 Eine auf NativeScript und Angular 2 basierende App für die Kommunikation von Kindergarten Lehrpersonen und den Eltern der Kinder.
 
 # Installation NativeScript und Android Emulation
