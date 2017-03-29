@@ -39,3 +39,13 @@ Eine auf NativeScript und Angular 2 basierende App für die Kommunikation von Ki
 - Eltern
     E-Mail: parent@parent.ch
     Passwort: 123456
+
+# Dokumentation des Source Code mit Compodoc
+- Offline: `[Projektpfad]/Pineapple/src/client/documentation/index.html`
+- Online: `http://127.0.0.1:3333/static/index.html` wenn Server über index.js gestartet wurde. Nur für Abgabe. Würde nicht produktiv eingesetzt werden.
+
+# Probleme
+- PDF PlugIn funktioniert derzeit nicht mit NativeScript und Angular 2. Der Stundenplan wurde deshalb online in App integriert.
+- Clientseitig sind mit NativeScript und Angular 2 derzeit leider keine Unit Test möglich. Unit Test auf Server wurden mit mocha und chai erstellt.
+- Beim Plug In nativescript-imagepicker mussten wir dependencies manuell anpassen, damit diese mit dem Plug In  nativescript-telerik-ui-pro funktioniert. Deshalb wurde das Plug In nativescript-imagepicker eingecheckt.
+- Bild Cropper PlugIn funktioniert derzeit nicht mit NativeScript und Angular 2
