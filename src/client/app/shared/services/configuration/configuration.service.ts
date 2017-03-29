@@ -93,8 +93,7 @@ export class ConfigurationService {
     }
 
     public get ipUrl(): string {
-        //return 'http://10.0.2.2:3333'; //Localhost
-        return 'http://192.168.0.12:3333';
+        return 'http://10.0.2.2:3333'; //Localhost
     }
 
     public get wsUrl(): string {
