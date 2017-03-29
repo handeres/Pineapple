@@ -18,11 +18,15 @@ Eine auf NativeScript und Angular 2 basierende App für die Kommunikation von Ki
 # Erstellen einer AVD (Android Virtual Device)
 - Siehe Word Dokument `docs/erstellen_einer_avd.docx`
 
+# Achtung!
+- Im Netzwerk der HSR kann nicht auf die MongoDB connteded werden. Es wird vom Server eine Exception geworfen.
+- Vorschlag: Handy Hotspot einrichten
+
 # Build and Test
 - Für Client:   `[Projektpfad]/Pineapple/src/client> npm install`
 - Für Server:   `[Projektpfad]/Pineapple/src/server> npm install`
 
-# Starten des Serves
+# Starten des Servers
 - `[Projektpfad]/Pineapple/src/server> node index.js`
 
 # Starten der Android Emulation (Client)
@@ -32,7 +36,7 @@ Eine auf NativeScript und Angular 2 basierende App für die Kommunikation von Ki
 - Starten der Unit Test auf dem Server: `[Projektpfad]/Pineapple/src/server> npm test`
 - Clientseitig sind mit NativeScript und Angular 2 derzeit leider keine Unit Test möglich
 
-# Beispiel Login
+# Vorhandene Login für schnellen Einstieg
 - Organisation
     E-Mail: org@org.ch
     Passwort: 123456
