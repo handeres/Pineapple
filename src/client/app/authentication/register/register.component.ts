@@ -28,10 +28,6 @@ export class RegisterComponent extends SubscriptionBase implements OnInit {
 
     ngOnInit() {
         this.model = new Register();
-        this.model.contractId = '';
-        this.model.email = '';
-        this.model.password = '';
-        this.model.password2 = '';
     }
 
 

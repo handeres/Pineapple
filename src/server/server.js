@@ -33,7 +33,8 @@ app.use(bodyParser.json());
 app.use(errorHandler);
 
 
-const hostname = '127.0.0.1';
+//const hostname = '127.0.0.1';
+const hostname = '192.168.0.12';
 const port = 3333;
 
 app.use('/api*', require('./routes/checkRoutes'));

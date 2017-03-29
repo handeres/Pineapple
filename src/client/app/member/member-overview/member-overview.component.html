@@ -21,6 +21,7 @@
                         </GridLayout>
                         <Label class="member-detail-nickname" text="{{'Rufname: ' + ' ' + item.callingName}}"></Label>
                         <Label class="member-detail-group" text="{{'Klasse: ' + item.group.name}}"></Label>
+                        <Label *ngIf="isOrganisation" class="member-detail-contractId" text="{{'Vertrags-ID: ' + ' ' + item.contractId}}"></Label>
                     </StackLayout>
                 </StackLayout>
             </template>

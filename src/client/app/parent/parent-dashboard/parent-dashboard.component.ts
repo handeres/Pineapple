@@ -73,7 +73,7 @@ export class ParentDashboardComponent implements AfterViewInit, OnInit {
 
         this.navMenu.push({ name: 'Registriere ein weiteres Kind', commands: ['member/registerParent'] });
         this.navMenu.push({ name: 'Melde Abwesenheit', commands: ['absence/register/', { filter: 'register' }] });
-        this.navMenu.push({ name: 'Persönliche Angaben', commands: ['parent/detail', this.useresService.getParentId()]});
+        this.navMenu.push({ name: 'Profil', commands: ['parent/detail', this.useresService.getParentId()]});
         this.navMenu.push({
             name: 'Abmelden',
             commands: [''],

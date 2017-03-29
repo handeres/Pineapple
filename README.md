@@ -1,5 +1,5 @@
 # CAS FEE 2016/2017 Projekt 2
-![Pineapple](https://github.com/handeres/Pineapple/blob/master/src/client/app/App_Resources/Android/drawable-hdpi/pineappleDocu.png)
+![Pineapple](https://github.com/handeres/Pineapple/blob/master/src/client/app/App_Resources/Android/drawable-hdpi/pineappledocu.png)
 
 Eine auf NativeScript und Angular 2 basierende App für die Kommunikation von Kindergarten Lehrpersonen und den Eltern der Kinder.
 
@@ -35,6 +35,9 @@ Eine auf NativeScript und Angular 2 basierende App für die Kommunikation von Ki
 # Unit Test
 - Starten der Unit Test auf dem Server: `[Projektpfad]/Pineapple/src/server> npm test`
 - Clientseitig sind mit NativeScript und Angular 2 derzeit leider keine Unit Test möglich
+
+# Bedienungsanleitung
+- Die erste Vorgehensweise mit der App sind in der Bedienungsanleitung beschrieben. `[Projektpfad]/docs/Bedienungsanleitung Pineapple App.docx`
 
 # Vorhandene Login für schnellen Einstieg
 - Organisation
