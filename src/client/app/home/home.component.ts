@@ -28,10 +28,10 @@ export class HomeComponent implements OnInit {
     }
 
     public ngOnInit(): void {
-        if (this.userService.isLoggedIn()) {
-            /* Connect websockets */
+        /*if (this.userService.isLoggedIn()) {
+
             this.notificationService.connect();
-            /* loading of the images */
+
             this.imageService.loadAllImages();
             this.snackbarService.makeText('Angemeldet als ' + this.userService.getUserName(), 10000);
             if (this.configurationService.organisationRole === this.userService.getUserRole()) {
@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit {
             else if (this.configurationService.parentRole === this.userService.getUserRole()) {
                 this.routerService.navigateSlideLeft(['parent/dashboard']);
             }
-        }
+        }*/
     }
 
     /**

@@ -27,7 +27,7 @@ export abstract class OverviewBase<Item extends IdItem> extends Base {
      */
     private lastSelectedItemIndex: number;
     /**
-     * Bestätigunstext für das löschen eines Item
+     * Bestätigunstext für das Löschen eines Item
      */
     private deleteConfirmText: string;
 
@@ -40,7 +40,7 @@ export abstract class OverviewBase<Item extends IdItem> extends Base {
     }
 
     /**
-     * Setzen des Löschen bestätigungs text
+     * Setzen des Löschen Bestätigungstext
      * @param text
      */
     protected setDeleteConfirmText(text: string) {
