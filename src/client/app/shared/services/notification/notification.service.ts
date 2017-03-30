@@ -38,7 +38,6 @@ export class NotificationService implements OnDestroy {
     constructor(private configurationService: ConfigurationService,
                 private routerService: RouterService,
                 private usersService: UsersService) {
-        SocketIO.enableDebug();
         NotificationService.context = this;
         NotificationService.id = 1;
 
