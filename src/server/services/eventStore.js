@@ -77,6 +77,14 @@ function publicAll(callback) {
     });
 }
 
+
+function publicAllByOrganisation(organisationId, callback) {
+    Event.find({organisationId: organisationId},function(err, docs){
+        callback(err, docs);
+    });
+}
+
+
 function publicGetNextEventByOrganisation(organisationId, callback) {
     Event.find({organisationId : organisationId}, function (err, docs){
 
@@ -112,4 +120,5 @@ module.exports = {
     deleteAll: publicRemoveAll,
     get : publicGet,
     all : publicAll,
+    allByOrganisation: publicAllByOrganisation,
 };

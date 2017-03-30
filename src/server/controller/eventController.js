@@ -28,9 +28,14 @@ module.exports.getById = function(req, res){
 };
 
 module.exports.getAll = function(req, res){
-	eventStore.all(function(err, docs) {
+	/*eventStore.all(function(err, docs) {
 		res.json(docs);
-	});
+	});*/
+	eventStore.allByOrganisation(req.headers.organisationid, function(err, docs) {
+	 	res.json(docs);
+	 });
+
+
 };
 
 module.exports.delete = function(req, res){
