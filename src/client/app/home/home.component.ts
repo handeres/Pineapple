@@ -28,19 +28,7 @@ export class HomeComponent implements OnInit {
     }
 
     public ngOnInit(): void {
-        /*if (this.userService.isLoggedIn()) {
 
-            this.notificationService.connect();
-
-            this.imageService.loadAllImages();
-            this.snackbarService.makeText('Angemeldet als ' + this.userService.getUserName(), 10000);
-            if (this.configurationService.organisationRole === this.userService.getUserRole()) {
-                this.routerService.navigateSlideLeft(['organisation/dashboard']);
-            }
-            else if (this.configurationService.parentRole === this.userService.getUserRole()) {
-                this.routerService.navigateSlideLeft(['parent/dashboard']);
-            }
-        }*/
     }
 
     /**

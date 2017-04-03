@@ -39,6 +39,9 @@ Eine auf NativeScript und Angular 2 basierende App für die Kommunikation von Ki
 # Bedienungsanleitung
 - Die erste Vorgehensweise mit der App sind in der Bedienungsanleitung beschrieben. `[Projektpfad]/docs/Bedienungsanleitung Pineapple App.docx`
 
+# User Experience Test
+- Den User Experience Test hat ein Arbeitskollege durchgeführt. Fotos in Word Dokument. `[Projektpfad]/docs/User Experience Test.docx`
+
 # Vorhandene Login für schnellen Einstieg
 - Organisation
     E-Mail: org@org.ch
