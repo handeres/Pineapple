@@ -59,3 +59,19 @@ Eine auf NativeScript und Angular 2 basierende App für die Kommunikation von Ki
 - Clientseitig sind mit NativeScript und Angular 2 derzeit leider keine Unit Test möglich. Unit Test auf Server wurden mit mocha und chai erstellt.
 - Beim Plug In nativescript-imagepicker mussten wir dependencies manuell anpassen, damit diese mit dem Plug In  nativescript-telerik-ui-pro funktioniert. Deshalb wurde das Plug In nativescript-imagepicker eingecheckt.
 - Bild Cropper PlugIn funktioniert derzeit nicht mit NativeScript und Angular 2
+
+# Geplante Erweiterungen der App und Website
+- Kommunikation unter den Lehrpersonen mit einem Chat innherhalb einer Schule/Kindergarten
+- Kommunikation unter den Lehrpersonen von verschiedenen Schulen
+- Kommunikation unter den Lehrpersonen und den Eltern der Schulkinder/Kindergartenkinder
+- Zeitmanagement der Lehrpersonen. Was muss wann welches Kind tun z.B. Logopädie
+- Livestream/Activitystream/Pinnwand von Bilder der Klassen für die Eltern
+- Reporting für z.B. Statistiken. Stundenplan, Abwesenheit
+- Klassenverwaltung für Kinder und Eltern. Eintragen von Eigernschaften der Kinder wie Medikamentenabgabe, Allergien usw.
+- Bevorstehende Ereignisse können den Eltern kommuniziert werden. Die Lehrpersonen können die Ereignisse verwalten
+- Abwesenheiten von Kindern können von den Eltern zu den Lehrpersonen kommunziert werden
+- Ausdrucken von Listen wie z.B. Klassenliste, Wochenplan, Jahresevents
+- Website für das Verwalten der Schule/Kindergarten, Klassenräume, Lehrpersonen, Klassen und Eltern. 
+- Plattform für Ideen Austausch unter den Lehrpersonen. Themenmappen, Bastelanleitungen usw.
+- Plattform für Lieferanten, welche ihre Produkte anbieten können
+
